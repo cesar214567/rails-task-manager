@@ -1,0 +1,16 @@
+<div class="d-flex justify-content-between">
+  <h1>
+    <%= @task.title %>
+  </h1>
+  <%= button_to "Edit Task", edit_task_path,:method => 'get' %>
+</div>
+<div>
+  <%= @task.details %>
+</div>
+<div>
+  <%= form_for(@task) do |f| %>
+    <%= f.check_box :completed, :disabled => ''  %><%= @task.completed ? "This task is completed" : "This task is not completed yet" %>
+  <% end %>
+</div>
+
+<%= link_to "Back to list", tasks_path %>
